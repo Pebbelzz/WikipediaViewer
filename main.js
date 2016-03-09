@@ -10,9 +10,9 @@ function search(){
 }
 
 var testJSON = "https://en.wikipedia.org/w/api.php?action=query&titles=Albert%20Einstein&prop=info&format=jsonfm";
-
+var otherTest = ""
 function testingAPI(){
   xhr.open("GET", testJSON);
   xhr.send();
-  console.log(xhr);
+  console.log(xhr.status);
 }
