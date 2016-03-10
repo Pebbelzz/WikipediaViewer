@@ -3,7 +3,7 @@ var wikiArtTitle = "";
 var wikiArticleUrl = "";
 var wikiArtDesc = "";
 var searchTerm = "";
-
+var lastSearch = "";
 
 function search(){
   searchTerm = $("#wikiSearch").val();
@@ -23,8 +23,28 @@ function getAPI(){
         console.log(wikiArtDesc);
         wikiArticleUrl = response[3];
         console.log(wikiArticleUrl);
-        console.log(response);
-      }
 
+        infoToPage();
+
+      }
   })
+}
+function infoToPage(){
+    for ( i = 0; i < wikiArtTitle.length; i++ ){
+      if(lastSearch == searchTerm){
+        $("#results").append("<div id='articleInfo result[" + i + "]'>" + wikiArtTitle[i] + "</div>")
+        console.log("searchTerm is the same as lastSearch and .append ran");
+        console.log("lastSearch = searchTerm : " + lastSearch + " = " + searchTerm)
+      }
+      else{
+        console.log("lastSearch doesn't  = searchTerm, .html ran")
+        console.log("searchTerm: " + searchTerm)
+        console.log("lastSearch: " + lastSearch)
+        $("#results").html("<div id='articleInfo result[" + i + "]'>" + wikiArtTitle[i] + "</div>")
+        console.log("resetting lastSearch");
+        lastSearch = searchTerm;
+        console.log("lastSearch: " + lastSearch)
+        console.log("searchTerm: " + searchTerm)
+        }
+      }
 }
