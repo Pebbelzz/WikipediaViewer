@@ -1,13 +1,22 @@
-var testJSON = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=Albert";
+var apiURL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=";
 var wikiArtTitle = "";
 var wikiArticleUrl = "";
 var wikiArtDesc = "";
+var searchTerm = "";
 
-function testingAPI(){
+
+function search(){
+  searchTerm = $("#wikiSearch").val();
+  getAPI();
+}
+
+function getAPI(){
     $.ajax({
-      url: testJSON,
+      url: apiURL + searchTerm,
       dataType: "jsonp",
       success: function(response){
+        console.log(searchTerm);
+        console.log(apiURL);
         wikiArtTitle = response[1];
         console.log(wikiArtTitle)
         wikiArtDesc = response[2];
