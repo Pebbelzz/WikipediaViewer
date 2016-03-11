@@ -32,7 +32,9 @@ function getAPI(){
 function infoToPage(){
     for ( i = 0; i < wikiArtTitle.length; i++ ){
       if(lastSearch == searchTerm){
-        $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div>");
+
+        $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
+          " + wikiArtDesc[i]);
         //console.log("searchTerm is the same as lastSearch and .append ran");
         //console.log("lastSearch = searchTerm : " + lastSearch + " = " + searchTerm)
       }
@@ -40,7 +42,8 @@ function infoToPage(){
         //console.log("lastSearch doesn't  = searchTerm, .html ran")
         //console.log("searchTerm: " + searchTerm)
         //console.log("lastSearch: " + lastSearch)
-        $("#results").html("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div>");
+        $("#results").html("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
+          " + wikiArtDesc[i]);
         //console.log("resetting lastSearch");
         lastSearch = searchTerm;
         //console.log("lastSearch: " + lastSearch)

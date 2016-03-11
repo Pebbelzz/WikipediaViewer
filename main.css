@@ -21,7 +21,11 @@
 
 }
 
+#results > div{
+  margin: 5px 0 5px 0;
+}
+
 #results > div > a{
-  text-decoration: none;
+  text-decoration: underline;;
   font-weight: bold;
 }
