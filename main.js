@@ -15,24 +15,21 @@ function getAPI(){
       url: apiURL + searchTerm,
       dataType: "jsonp",
       success: function(response){
-        console.log(searchTerm);
-        console.log(apiURL);
+        //console.log(searchTerm);
+        //console.log(apiURL);
         wikiArtTitle = response[1];
-        console.log(wikiArtTitle)
+        //console.log(wikiArtTitle)
         wikiArtDesc = response[2];
-        console.log(wikiArtDesc);
+        //console.log(wikiArtDesc);
         wikiArticleUrl = response[3];
-        console.log(wikiArticleUrl);
-
+        //console.log(wikiArticleUrl);
         infoToPage();
-
       }
   })
 }
 function infoToPage(){
     for ( i = 0; i < wikiArtTitle.length; i++ ){
       if(lastSearch == searchTerm){
-
         $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
           " + wikiArtDesc[i]);
         //console.log("searchTerm is the same as lastSearch and .append ran");
