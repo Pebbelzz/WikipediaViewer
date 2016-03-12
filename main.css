@@ -15,10 +15,12 @@
 }
 
 #results > div{
-  margin: 5px 0 5px 0;
+  margin: 10px 0 10px 0;
 }
 
 #results > div > a{
   text-decoration: underline;;
   font-weight: bold;
+  font-size: 1.25em;
+  color: black;
 }

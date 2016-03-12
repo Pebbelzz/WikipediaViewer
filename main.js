@@ -13,7 +13,7 @@ $(document).ready(function(){
     textValue = $("#wikiSearch").val();
     console.log(textValue);
     script = document.createElement('script');
-    script.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=autoSearch&search=' + textValue;
+    script.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=15&format=json&callback=autoSearch&search=' + textValue;
     $('body').append(script);
     console.log(script);
   });
