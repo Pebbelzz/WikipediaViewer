@@ -34,7 +34,7 @@ function infoToPage(){
     console.log("infoToPage() was called")
     for ( i = 0; i < wikiArtTitle.length; i++ ){
       if(lastSearch == searchTerm){
-        $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
+        $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "' target='_blank'>" + wikiArtTitle[i] + "</a></div> \
           " + wikiArtDesc[i]);
         //console.log("searchTerm is the same as lastSearch and .append ran");
         //console.log("lastSearch = searchTerm : " + lastSearch + " = " + searchTerm)
@@ -43,7 +43,7 @@ function infoToPage(){
         //console.log("lastSearch doesn't  = searchTerm, .html ran")
         //console.log("searchTerm: " + searchTerm)
         //console.log("lastSearch: " + lastSearch)
-        $("#results").html("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
+        $("#results").html("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "' target='_blank'>" + wikiArtTitle[i] + "</a></div> \
           " + wikiArtDesc[i]);
         //console.log("resetting lastSearch");
         lastSearch = searchTerm;
@@ -52,6 +52,8 @@ function infoToPage(){
         }
       }
 }
+
+
 //below are auto functions to add data as user types
 
 var script = "";
@@ -81,7 +83,7 @@ function autoInfoToPage(){
   };
   for ( i = 0; i < wikiArtTitle.length; i++ ){
     console.log("wikiArtTitle: " + wikiArtTitle);
-    $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
+    $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "' target='_blank'>" + wikiArtTitle[i] + "</a></div> \
       " + wikiArtDesc[i]);
   };
   lastSearch = searchTerm;
