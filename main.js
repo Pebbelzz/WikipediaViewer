@@ -5,6 +5,9 @@ var wikiArtDesc = "";
 var searchTerm = "";
 var lastSearch = "";
 
+
+//static functions that return results once user presses enter or hits submit button
+
 function search(){
   searchTerm = $("#wikiSearch").val();
   getAPI();
@@ -50,6 +53,10 @@ function infoToPage(){
       }
 }
 
+
+
+//below are auto functions to add data as user types
+
 function autoInfoToPage(){
   console.log("autoInfoToPage(); was called")
   for ( i = 0; i < wikiArtTitle.length; i++ ){
@@ -92,3 +99,6 @@ $(document).ready(function(){
 
   });
 });
+
+//as of right now the auto functions are lagging 1 keystroke behind and they are constantly
+//adding data, need to replace what is up on the results.
