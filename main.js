@@ -68,19 +68,24 @@ $(document).ready(function(){
     console.log(script);
     searchTerm = textValue;
     console.log("searchTerm: " + searchTerm + " & lastSearch: " + lastSearch)
-    lastSearch = searchTerm;
   });
 });
 
 function autoInfoToPage(){
   console.log("autoInfoToPage(); was called")
   console.log("wikiArtTitle.length: " + wikiArtTitle.length)
+  console.log("searchTerm: " + searchTerm + " & lastSearch: " + lastSearch)
+  if(searchTerm != lastSearch){
+    console.log("searchTerm !== lastSearch: " + searchTerm !== lastSearch)
+    $("#results").empty();
+  };
   for ( i = 0; i < wikiArtTitle.length; i++ ){
     console.log("wikiArtTitle: " + wikiArtTitle);
     $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
       " + wikiArtDesc[i]);
-  }
-}
+  };
+  lastSearch = searchTerm;
+};
 
 function autoSearch(data){
   $("#results").html = data;
