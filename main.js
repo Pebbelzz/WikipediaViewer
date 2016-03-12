@@ -52,14 +52,31 @@ function infoToPage(){
         }
       }
 }
-
-
-
 //below are auto functions to add data as user types
+
+var script = "";
+var textValue = "";
+
+$(document).ready(function(){
+  $("#wikiSearch").keyup(function(){
+    console.log("keyUP();")
+    textValue = $("#wikiSearch").val();
+    console.log(textValue);
+    script = document.createElement('script');
+    script.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=autoSearch&search=' + textValue;
+    $('body').append(script);
+    console.log(script);
+    searchTerm = textValue;
+    console.log("searchTerm: " + searchTerm + " & lastSearch: " + lastSearch)
+    lastSearch = searchTerm;
+  });
+});
 
 function autoInfoToPage(){
   console.log("autoInfoToPage(); was called")
+  console.log("wikiArtTitle.length: " + wikiArtTitle.length)
   for ( i = 0; i < wikiArtTitle.length; i++ ){
+    console.log("wikiArtTitle: " + wikiArtTitle);
     $("#results").append("<div id='articleInfo result[" + i + "]'><a href='" + wikiArticleUrl[i] + "'>" + wikiArtTitle[i] + "</a></div> \
       " + wikiArtDesc[i]);
   }
@@ -72,33 +89,6 @@ function autoSearch(data){
   wikiArtTitle = data[1];
   wikiArtDesc = data[2];
   wikiArticleUrl = data[3];
+  console.log("calling autoinfoToPage();");
+  autoInfoToPage();
 }
-
-function scriptSource(){
-  console.log("scriptSource() called");
-  script = document.createElement('script');
-  script.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=autoSearch&search=' + textValue;
-  $('body').append(script);
-}
-
-var script = "";
-var textValue = "";
-$(document).ready(function(){
-  $("#wikiSearch").keyup(function(){
-    console.log("keyUP();")
-
-    textValue = $("#wikiSearch").val();
-    console.log(textValue);
-    scriptSource();
-    console.log("calling scriptSource();")
-    searchTerm = textValue;
-    console.log("searchTerm: " + searchTerm + " & lastSearch: " + lastSearch)
-    console.log("calling infoToPage();");
-    autoInfoToPage();
-    lastSearch = searchTerm;
-
-  });
-});
-
-//as of right now the auto functions are lagging 1 keystroke behind and they are constantly
-//adding data, need to replace what is up on the results.
