@@ -40,3 +40,12 @@ function autoSearch(data){
   console.log("calling autoinfoToPage();");
   autoInfoToPage();
 }
+
+
+//make search box appear once search icon is clicked
+
+$(document).ready(function(){
+  $('#searchIcon').click(function(){
+    $("#wikiSearch").toggleClass("searchBoxShow");
+  });
+});

@@ -1,17 +1,57 @@
 #wrapper{
-  width:600px;
-  max-width: 50%;
-  border: 1px solid black;
+  width:650px;
+  max-width: 55%;
   margin: 50px auto;
 }
 
+#upper_options{
+    margin: 10px auto;
+    width: 300px;
+    position: relative;
+    display: block;
+    height: 50px;
+}
 
 #random{
+  border: 3px solid black;
+  width: 150px;
+  max-width: 50%;
+  height: 50px;
+  line-height: 45px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 10px;
+  outline: none;
+}
 
+#or{
+  font-weight: bold;
+  font-size: 1.25em;
 }
 
 #search{
+  width: 270px;
+  display: block;
+  margin: 10px auto;
+}
 
+.searchBox{
+  height: 0;
+  border: 0;
+  -webkit-transition: height 1.5s;
+  transition: height 1.5s;
+}
+
+.searchBoxShow{
+  height: 30px;
+  border: 1px solid black;
+  width: 100%;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 25px;
+  padding-left: 10px;
 }
 
 #results > div{

@@ -20,10 +20,15 @@
 
 <body>
   <div id="wrapper">
-    <div id="random"><a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank">Random Article</a></div>
+    <div id="upper_options">
+
+        <input type="button" id="random" onclick="window.open('http://en.wikipedia.org/wiki/Special:Random', '_blank')" value="Random Article">
+    
+      <span id="or">&nbsp&nbsp- or -&nbsp&nbsp </span>
+      <i class="fa fa-search fa-2x" id="searchIcon"></i>
+    </div>
     <div id="search">
-      <i class="fa fa-search"></i>
-        <input type="text" id="wikiSearch">
+        <input type="text" id="wikiSearch" class="searchBox">
     </div>
     <div id="results"></div>
   </div>
